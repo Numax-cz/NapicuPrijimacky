@@ -13,13 +13,10 @@ export class MasterComponent implements OnInit {
   protected readonly date: string = 'Apr 12';
   protected readonly time: string = '8:00:00';
 
-  public months: number = 0;
-  public weeks: number = 0;
-  public days: number = 0;
-  public globaldays: number = 0;
-  public hours: number = 0;
-  public minutes: number = 0;
-  public seconds: number = 0;
+  public days: string = '0';
+  public hours: string = '0';
+  public minutes: string = '0';
+  public seconds: string = '0';
   public milliseconds: string = '0';
 
   protected readonly _second = 1000;
@@ -45,23 +42,23 @@ export class MasterComponent implements OnInit {
 
   protected setText(): void {
     var text;
-    switch (this.globaldays) {
-      case 0:
+    switch (this.days) {
+      case '0':
         text = 'Ha nechtěl bych mít příjmačky';
         break;
-      case 1:
+      case '1':
         text = 'Ha zítra máš příjmačky, nechtěl bych';
         break;
-      case 69:
+      case '69':
         text = 'Ha za 69 dní to píšeš, nechtěl bych!';
         break;
-      case 123:
+      case '123':
         text = 'Mám hlad!';
         break;
-      case 365:
+      case '364':
         text = 'Tvl no maké, za rok to píšeš!';
         break;
-      case 9:
+      case '9':
         text = 'Uč se maké!';
         break;
       default:
@@ -78,25 +75,26 @@ export class MasterComponent implements OnInit {
   protected checkTime(): void {
     var now = new Date().getTime();
     var distance = this.Time - now;
-    this.months = Math.round(distance / 1000 / 2629800);
-    this.days = this.globaldays = Math.round((distance / 1000 % 2629800) / 86400);
-    this.hours = Math.round((distance / 1000 % 86400) / 3600)
-    this.minutes = Math.round(distance / 1000 % 3600 / 60);
-    this.seconds = Math.floor(distance / 1000 % 60);
-    this.milliseconds = this.numberOption(Math.round(distance % 1000));
+    this.days = Math.floor(distance / this._day).toLocaleString('en-US', this.numberOption(3));
+    this.hours = Math.floor((distance % this._day) / this._hour).toLocaleString(
+      'en-US',
+      this.numberOption(2)
+    );
+    this.minutes = Math.floor((distance % this._hour) / this._minute).toLocaleString(
+      'en-US',
+      this.numberOption(2)
+    );
+    this.seconds = Math.floor((distance % this._minute) / this._second).toLocaleString(
+      'en-US',
+      this.numberOption(2)
+    );
+    this.milliseconds = (distance % this._second).toLocaleString('en-US', this.numberOption(3));
   }
 
-  protected numberOption(number: number): any {
-    if (number < 100)
-    {
-      if (number < 10)
-      {
-        return `00${number}`;
-      }else{
-        return `0${number}`;
-      }
-    }else{
-      return number;
-    }
+  protected numberOption(number: number): Intl.NumberFormatOptions {
+    return {
+      minimumIntegerDigits: number,
+      useGrouping: false,
+    };
   }
 }
