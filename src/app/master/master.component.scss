@@ -1,0 +1,65 @@
+#datetime {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin: auto;
+  width: 40%;
+  border-radius: 14px;
+}
+#destext {
+  padding: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin: auto;
+  width: 30%;
+  margin-top: 50px;
+  color: red;
+  text-shadow: black 10px;
+}
+
+.table {
+  display: table;
+  z-index: 1;
+  height: 100vh;
+  min-height: 500px;
+  width: 100%;
+}
+.toptxt {
+  font-size: 2.32rem;
+  font-weight: 500;
+  width: 100%;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 5px;
+}
+.table > div {
+  display: table-cell;
+  vertical-align: middle;
+  padding-bottom: 230px;
+}
+.center {
+  text-align: center;
+}
+#img {
+  background-size: 100% 100%;
+  background-image: url('/assets/imgs/numax_dick_pic.webp');
+}
