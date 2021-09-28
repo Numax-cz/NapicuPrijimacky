@@ -2,34 +2,54 @@
   font-size: 3.5rem;
   font-weight: 700;
   letter-spacing: 2px;
-  /* From https://css.glass */
+  margin: auto;
+  width: 60%;
+  min-width: min-content;
+  max-width: 100%;
+  overflow: visible;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  margin: auto;
-  width: 40%;
-  border-radius: 14px;
 }
 #destext {
   padding: 10px;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 200%;
+  font-weight: 400;
 
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
   margin: auto;
   width: 30%;
-  margin-top: 50px;
+  min-width: fit-content;
+  margin-top: 7%;
   color: red;
-  text-shadow: black 10px;
+  text-shadow: 1px 1px 2px red, 0 0 .8em black, 0 0 0.4em black;
+  background-color: rgba(255, 255, 255, .4);
+  border-radius: 32px;
+}
+
+span
+{
+  margin: 0 12px;
+  position: relative;
+  width: 100px;
+  display: inline-table;
+}
+span::after
+{
+  content: attr(aria-label);
+  position: absolute;
+  top: calc(100%);
+  height: 50px;
+  width: 100%;
+  left: 50%;
+  font-size: 14px;
+  transform: translateX(-50%);
+  color: #fff;
+  background: #121212;
+  border-radius: 12px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .table {
@@ -43,7 +63,6 @@
   font-size: 2.32rem;
   font-weight: 500;
   width: 100%;
-  /* From https://css.glass */
   background: rgba(255, 255, 255, 0.7);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(6px);
@@ -62,4 +81,79 @@
 #img {
   background-size: 100% 100%;
   background-image: url('/assets/imgs/numax_dick_pic.webp');
+}
+
+
+@media (max-width: 1550px)
+{
+  #datetime
+  {
+    width: 80%;
+  }
+  #destext
+  {
+    margin-top: 15%;
+  }
+}
+
+
+@media (max-width: 1170px)
+{
+  #datetime
+  {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 1000px) {
+  #datetime
+  {
+    font-size: 2rem;
+  }
+  span
+  {
+    margin: 0 2px;
+  }
+  span::after
+  {
+    font-size: 12px;
+    height: 42px;
+  }
+}
+
+@media (max-width: 770px)
+{
+  span
+  {
+    margin: 0;
+    width: auto;
+  }
+  span::after
+  {
+    display: none;
+  }
+  #destext
+  {
+    font-size: 150%;
+  }
+}
+
+@media (max-width: 400px)
+{
+  .toptxt
+  {
+    font-size: 1.5rem;
+  }
+  #destext
+  {
+    font-size: 100%;
+  }
+}
+
+@media (max-height: 350px)
+{
+  #destext
+  {
+    margin-top: 5%;
+  }
 }
