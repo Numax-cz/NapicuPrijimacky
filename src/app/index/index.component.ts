@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-master',
-  templateUrl: './master.component.html',
-  styleUrls: ['./master.component.scss'],
+  selector: 'app-index',
+  templateUrl: './index.component.html',
+  styleUrls: ['./index.component.scss'],
 })
-export class MasterComponent implements OnInit {
+export class IndexComponent implements OnInit {
   constructor() {}
 
   protected Time: number = this.getTime();
