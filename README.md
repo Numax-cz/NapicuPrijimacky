@@ -1,1 +1,1 @@
-# NapicuMasterOdpocet
+# NapicuPrijimacky

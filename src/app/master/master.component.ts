@@ -26,14 +26,15 @@ export class MasterComponent implements OnInit {
   public text: string = '';
 
   public ngOnInit(): void {
+
     this.checkTime();
     this.setText();
     setInterval(() => this.checkTime(), 10);
   }
   protected getTime(): number {
     const date = new Date();
-    var now = date.getTime();
-    var nowY = date.getFullYear();
+    let now = date.getTime();
+    let nowY = date.getFullYear();
     while (this.getYear(nowY) < now) {
       nowY++;
     }
@@ -41,30 +42,23 @@ export class MasterComponent implements OnInit {
   }
 
   protected setText(): void {
-    var text;
-    switch (this.days) {
-      case '0':
-        text = 'Ha nechtěl bych mít příjmačky';
-        break;
-      case '1':
-        text = 'Ha zítra máš příjmačky, nechtěl bych';
-        break;
-      case '69':
-        text = 'Ha za 69 dní to píšeš, nechtěl bych!';
-        break;
-      case '123':
-        text = 'Mám hlad!';
-        break;
-      case '364':
-        text = 'Tvl no maké, za rok to píšeš!';
-        break;
-      case '9':
-        text = 'Uč se maké!';
-        break;
-      default:
-        text = 'No maké maké! Ať vše umíš!';
-        break;
+    let text;
+    const dayNum = Number(this.days);
+
+    if(dayNum <= 0){
+      text = 'Ha nechtěl bych mít přijímačky';
+    }else if (dayNum <= 69) {
+      text = `Ha za ${dayNum} dní to píšeš, nechtěl bych!`;
+    }else if(dayNum <= 100) {
+      text = 'Uč se maké!';
+    }else if(dayNum <= 364) {
+      text = 'Maké za chvilku máš přijímačky!'
+    }else if(dayNum < 9){
+      text = 'No maké maké! Ať vše umíš!';
+    }else {
+      text = 'Uč se maké!';
     }
+
     this.text = text;
   }
 
@@ -73,8 +67,8 @@ export class MasterComponent implements OnInit {
   }
 
   protected checkTime(): void {
-    var now = new Date().getTime();
-    var distance = this.Time - now;
+    let now = new Date().getTime();
+    let distance = this.Time - now;
     this.days = Math.floor(distance / this._day).toLocaleString('en-US', this.numberOption(3));
     this.hours = Math.floor((distance % this._day) / this._hour).toLocaleString(
       'en-US',
